@@ -1,0 +1,11 @@
+.wishlist-row {
+    transition: background 0.2s, transform 0.2s;
+}
+.wishlist-row:hover {
+    background: #f5f7fa;
+    transform: scale(1.01);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
+.wishlist-list-item:hover {
+    background: #f5f7fa;
+}

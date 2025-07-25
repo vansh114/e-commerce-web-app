@@ -1,0 +1,1337 @@
+{
+	"info": {
+		"_postman_id": "4f7a58b4-bb66-4f27-8683-ee1f3b548efc",
+		"name": "E-Commerce Web App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38788072",
+		"_collection_link": "https://dialogflow-chatbot.postman.co/workspace/Team-Workspace~dfb85426-38de-493a-8dad-6c00f8405be7/collection/38788072-4f7a58b4-bb66-4f27-8683-ee1f3b548efc?action=share&source=collection_link&creator=38788072"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"shiva123\",\n  \"email\": \"shiva@email.com\",\n  \"password\": \"123456\",\n  \"role\": \"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@email.com\",\n  \"password\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Deactivated Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"shiva123@email.com\",\r\n  \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/restore",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"restore"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Add to Cart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4NTJlYTI3N2ZjNzA5ZjE1OWQyIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ0Nzk3NzU0fQ.fqy-W0p9EEQxnphozQaME334EOJKHz2eVlPKccXg8sY"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productId\": \"67fcf48c21604449f39b9b89\",\n  \"quantity\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/cart/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"cart",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Logged in User's Cart",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4NTJlYTI3N2ZjNzA5ZjE1OWQyIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ1NTgxOTgzfQ.z2uzKMHvSJBuXfc1vNX1bYIPfjowH3rNTtoDdwluc-U"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update quantity of Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmOTAzNjNmZThiMDBjMTBmMWJlNjU5Iiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ0NDAyMTA2LCJleHAiOjE3NDQ0MDU3MDZ9.PcfM1YkO4KRuEcjt36zj8graw2Qvy-x9fl9KZhTyMIs"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"quantity\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/cart/update/67f97642854d7515933cc570",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"cart",
+								"update",
+								"67f97642854d7515933cc570"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a Product from Cart",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4NTJlYTI3N2ZjNzA5ZjE1OWQyIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ0Nzk3NzU0fQ.fqy-W0p9EEQxnphozQaME334EOJKHz2eVlPKccXg8sY"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/cart/remove/67f97642854d7515933cc570",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"cart",
+								"remove",
+								"67f97642854d7515933cc570"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clear Cart",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4NTJlYTI3N2ZjNzA5ZjE1OWQyIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ0Nzk3NzU0fQ.fqy-W0p9EEQxnphozQaME334EOJKHz2eVlPKccXg8sY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/cart/clear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"cart",
+								"clear"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Add a Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4ODBlYTI3N2ZjNzA5ZjE1OWQ4Iiwicm9sZSI6InJldGFpbGVyIn0sImlhdCI6MTc0NDYzMDA4NSwiZXhwIjoxNzQ0NjMzNjg1fQ.uC_q1TiZxliFFAL__fF6Oso47EGuANUykP-s-ydP_yU"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"DANVOUY Womens T Shirt Casual Cotton Short\",\n  \"price\": 12.99,\n  \"description\": \"95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print, V-Neck, Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring, Summer, Autumn, Winter.\",\n  \"category\": \"women's clothing\",\n  \"image\": \"https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg\",\n  \"stock\": 200\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/products/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch My Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4ODBlYTI3N2ZjNzA5ZjE1OWQ4Iiwicm9sZSI6InJldGFpbGVyIn0sImlhdCI6MTc0NTgyMTcxMX0.Ha5jPWv_6axiw26RrkT3S4vD2z4xOV0B_-f13bsVhfM"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/products/my",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products",
+								"my"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Product",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4ODBlYTI3N2ZjNzA5ZjE1OWQ4Iiwicm9sZSI6InJldGFpbGVyIn0sImlhdCI6MTc0NDYzMDA4NSwiZXhwIjoxNzQ0NjMzNjg1fQ.uC_q1TiZxliFFAL__fF6Oso47EGuANUykP-s-ydP_yU"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops\",\r\n  \"price\": 109.95,\r\n  \"description\": \"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday\",\r\n  \"category\": \"men's clothing\",\r\n  \"image\": \"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg\",\r\n  \"stock\": 200\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/products/67fcf30c21604449f39b9b6b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products",
+								"67fcf30c21604449f39b9b6b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch a Product",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4NTJlYTI3N2ZjNzA5ZjE1OWQyIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ0NjMxNTEyLCJleHAiOjE3NDQ2MzUxMTJ9.kzv9JHtfHod08aQ9iq4Yobbt_SPo3DiDHDVM7S7W39Q"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/products/67fcf47121604449f39b9b86",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products",
+								"67fcf47121604449f39b9b86"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/products?search=&category=&page=&limit=&sort=&minPrice=&maxPrice=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "",
+									"description": "Search by product name and description "
+								},
+								{
+									"key": "category",
+									"value": "",
+									"description": "Filter by category"
+								},
+								{
+									"key": "page",
+									"value": "",
+									"description": "Which page to fetch"
+								},
+								{
+									"key": "limit",
+									"value": "",
+									"description": "How many products per page"
+								},
+								{
+									"key": "sort",
+									"value": "",
+									"description": "Field to sort by (asc)"
+								},
+								{
+									"key": "minPrice",
+									"value": ""
+								},
+								{
+									"key": "maxPrice",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmOTA0NTEyZjUxZTA2NGFjYWE0ZjhlIiwicm9sZSI6InJldGFpbGVyIn0sImlhdCI6MTc0NDYyNTM1OCwiZXhwIjoxNzQ0NjI4OTU4fQ.s2oXyHFlagfjyDzVfB1dm1QP3UBb1QRYQ3IBxMh3ktw"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/products/67f97642854d7515933cc570",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products",
+								"67f97642854d7515933cc570"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Wishlist",
+			"item": [
+				{
+					"name": "Add to Wishlist",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmOTAzNjNmZThiMDBjMTBmMWJlNjU5Iiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ0NjA5MTYwLCJleHAiOjE3NDQ2MTI3NjB9.SvW6WSQBF0xjy0r1ValJzP9kjE900c_iyxOKpEHyQv0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": \"67f97642854d7515933cc570\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/wishlist/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"wishlist",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Logged in User's Wishlist",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4NTJlYTI3N2ZjNzA5ZjE1OWQyIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ1NTgyMDE0fQ.RamrLXMczhA-5AUhy4o7WJ0NMZg6ZvnEmcOuEYerb2Q"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/wishlist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"wishlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a Product from Wishlist",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmOTAzNjNmZThiMDBjMTBmMWJlNjU5Iiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ0NjA5MTYwLCJleHAiOjE3NDQ2MTI3NjB9.SvW6WSQBF0xjy0r1ValJzP9kjE900c_iyxOKpEHyQv0"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/wishlist/remove/67f97642854d7515933cc570",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"wishlist",
+								"remove",
+								"67f97642854d7515933cc570"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get User's Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4NTJlYTI3N2ZjNzA5ZjE1OWQyIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ0Nzk3NzU0fQ.fqy-W0p9EEQxnphozQaME334EOJKHz2eVlPKccXg8sY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/user/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"user",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User's Details",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4NTJlYTI3N2ZjNzA5ZjE1OWQyIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ0Nzk3NzU0fQ.fqy-W0p9EEQxnphozQaME334EOJKHz2eVlPKccXg8sY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"shivansh@email.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/user/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"user",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmOTAzNjNmZThiMDBjMTBmMWJlNjU5Iiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ0NjI1NDc2LCJleHAiOjE3NDQ2MjkwNzZ9.H_rzjnKzy-2nP92-mHNR9dlg8512EjudZy28i9cLD9s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currentPassword\": \"456123\",\r\n    \"newPassword\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/user/change-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"user",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deactivate an Account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjgxZDk4OTUwNTE0ZjA1N2RkMjBjYzNkIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ2NzcwMDY5fQ.bbqtUSIV3DYDGhddptuGH3pvUVrXlEU6bdiZPjMdKSs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/user/me/deactivate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"user",
+								"me",
+								"deactivate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an Account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2UyMTcyOGE2ZmFhZTBlOWQ5ZGM0Iiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ0NjI2MTk5LCJleHAiOjE3NDQ2Mjk3OTl9.stEr2J3Cf5ksV5AXLcy-zrXQnVeZ2yCY-gsdrVm6r9k",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/user/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"user",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Get All Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjgwZjFlOWNmNjI1YTRhYTA1ZjVkMGFkIiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTc0Njc3MDE3NH0.9bGeTHvdFyFLp1SHtpPWQqfpTatPKj33rB1U1AQRGJ8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/admin/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"admin",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4NjllYTI3N2ZjNzA5ZjE1OWQ1Iiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTc0NDYyNzk3NSwiZXhwIjoxNzQ0NjMxNTc1fQ.rsQgN2DLKoB1LYQarcGnB99KuHZrE2E2Q9B5_aitRs8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/admin/delete/67fce892ea277fc709f159db",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"admin",
+								"delete",
+								"67fce892ea277fc709f159db"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate an User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2E5YzBhMDU3ODgyN2U0NjdhMTBiIiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTc0NDYyNjQzMSwiZXhwIjoxNzQ0NjMwMDMxfQ.G84L7liuwcE0fC1MDmrd5qPbYemuZO6v8WRUGSUu9J4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/admin/deactivate/67fce962d780b96533b7d7da",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"admin",
+								"deactivate",
+								"67fce962d780b96533b7d7da"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore an User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjgwZjFlOWNmNjI1YTRhYTA1ZjVkMGFkIiwicm9sZSI6ImFkbWluIn0sImlhdCI6MTc0Njc3MDE3NH0.9bGeTHvdFyFLp1SHtpPWQqfpTatPKj33rB1U1AQRGJ8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/admin/restore/681d98950514f057dd20cc3d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"admin",
+								"restore",
+								"681d98950514f057dd20cc3d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Place an Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4NTJlYTI3N2ZjNzA5ZjE1OWQyIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ1ODMxNTM1fQ.qDz2DJHNPAIbI-p-5ls6AF2ZAYlKWzoF6F8RD-chAdo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"orderItems\": [\r\n    {\r\n      \"product\": \"67fcf30c21604449f39b9b6b\",\r\n      \"name\": \"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops\",\r\n      \"image\": \"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg\",\r\n      \"price\": 109.95,\r\n      \"quantity\": 1\r\n    }\r\n  ],\r\n  \"shippingAddress\": {\r\n    \"fullName\": \"Vansh Bhavsar\",\r\n    \"address\": \"11 Soham Park\",\r\n    \"city\": \"Ahmedabad\",\r\n    \"pinCode\": \"382210\",\r\n    \"country\": \"India\"\r\n  },\r\n  \"paymentMethod\": \"UPI\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/order/place",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"order",
+								"place"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get My Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4NTJlYTI3N2ZjNzA5ZjE1OWQyIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ0Nzk3NzU0fQ.fqy-W0p9EEQxnphozQaME334EOJKHz2eVlPKccXg8sY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/order/my-orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"order",
+								"my-orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Order by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4NTJlYTI3N2ZjNzA5ZjE1OWQyIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ0Nzk3NzU0fQ.fqy-W0p9EEQxnphozQaME334EOJKHz2eVlPKccXg8sY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/order/680f46fc903802abc27a435f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"order",
+								"680f46fc903802abc27a435f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retailer - Get all Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4ODBlYTI3N2ZjNzA5ZjE1OWQ4Iiwicm9sZSI6InJldGFpbGVyIn0sImlhdCI6MTc0NTg0MTEzOX0.oevNzN-qdAShGXNLJ8Ss9dXjRLW_lipNDh0_bOYhj7M",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/order/retailer/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"order",
+								"retailer",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retailer - Update Order Status",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4ODBlYTI3N2ZjNzA5ZjE1OWQ4Iiwicm9sZSI6InJldGFpbGVyIn0sImlhdCI6MTc0NTg0MTEzOX0.oevNzN-qdAShGXNLJ8Ss9dXjRLW_lipNDh0_bOYhj7M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"Shipped\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/order/retailer/update-status/680f4735903802abc27a4906",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"order",
+								"retailer",
+								"update-status",
+								"680f4735903802abc27a4906"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retailer - Delete an Order",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4ODBlYTI3N2ZjNzA5ZjE1OWQ4Iiwicm9sZSI6InJldGFpbGVyIn0sImlhdCI6MTc0NTg0MTEzOX0.oevNzN-qdAShGXNLJ8Ss9dXjRLW_lipNDh0_bOYhj7M",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/order/retailer/delete/67fcfa8d2553d5c79e421759",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"order",
+								"retailer",
+								"delete",
+								"67fcfa8d2553d5c79e421759"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "Add a Review",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U5NjJkNzgwYjk2NTMzYjdkN2RhIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ0NzEwNDY3fQ.JGmD0d9zfyxG08gy6qpw3tsWw3TRxoKvigkU59gdEk4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"67fcf47121604449f39b9b86\",\r\n    \"rating\": 4.5,\r\n    \"comment\": \"nice\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/review/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"review",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Reviews for a Product",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4NTJlYTI3N2ZjNzA5ZjE1OWQyIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ0Njk5MjI5LCJleHAiOjE3NDQ3MDI4Mjl9.Vy7AcC5fkBr1q9V1I53VlLWU_vRJIZwv_bOVhUscNbM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/review/67fcf4b621604449f39b9b8f?page=1&limit=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"review",
+								"67fcf4b621604449f39b9b8f"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a review",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U5NjJkNzgwYjk2NTMzYjdkN2RhIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ0NzAxMzI5LCJleHAiOjE3NDQ3MDQ5Mjl9.PuZ2T0IycY0XPaAM_bFhwIcSVhDjnQNcD4zJhCgr3f0",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rating\": 4,\r\n  \"comment\": \"Nah it's good\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/review/67fe07b4d7ae03a4f89f89d8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"review",
+								"67fe07b4d7ae03a4f89f89d8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Review",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdmY2U4NTJlYTI3N2ZjNzA5ZjE1OWQyIiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQ0NzA1MTIwfQ.VWqozpYSdsAZ3Hun2NXJYAzOJ84K79tT8F0AC5l7NNw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/review/67fe04c3b533e52081ba682f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"review",
+								"67fe04c3b533e52081ba682f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/createBudget",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"createBudget"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
