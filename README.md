@@ -35,6 +35,25 @@ A full-stack e-commerce application built with MERN stack (MongoDB, Express.js, 
 - Helmet for security
 - CORS
 
+## Project Structure
+```plaintext
+├── backend/
+│   ├── middleware/     # Authentication and authorization middleware
+│   ├── models/         # MongoDB schema models
+│   ├── routes/         # API route handlers
+│   ├── .env            # Environment variables
+│   ├── db.js          # Database connection
+│   ├── index.js       # Server entry point
+│   └── package.json   # Backend dependencies
+├── public/            # Static files
+├── src/
+│   ├── components/    # React components
+│   ├── context/       # Context API states
+│   ├── Style/         # CSS stylesheets
+│   └── App.js         # Main React component
+└── package.json       # Project dependencies
+```
+
 ## Installation
 
 1. **Clone the repository:**
